@@ -1,4 +1,6 @@
-# coding:utf-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import re, codecs, argparse
 from pprint import pformat
 from os import path
@@ -84,13 +86,15 @@ def create_wordcloud(frequencies, stop_words):
 	image = wordcloud.to_image()
 	image.show()
 
-
-####################
-# Main
-####################
-if __name__ == '__main__':
+def main():
 	logger.info("Started %s." % path.basename(__file__))
 	words = create_history_frequencies(shell_name)
 	stop_words = load_stop_words(stop_words_file)
 	create_wordcloud(words, stop_words)
 	logger.info("Finished %s." % path.basename(__file__))
+
+####################
+# Main
+####################
+if __name__ == '__main__':
+	main()
