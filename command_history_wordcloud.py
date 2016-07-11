@@ -8,11 +8,10 @@ from subprocess import Popen, PIPE, STDOUT
 from logging import getLogger, StreamHandler, Formatter, DEBUG
 from wordcloud import WordCloud
 
-####################
-# Initialize
-####################
 
-# Logger
+####################
+# Initialization
+####################
 logger = getLogger(__name__)
 handler = StreamHandler()
 handler.setLevel(DEBUG)
@@ -21,31 +20,26 @@ handler.setFormatter(formatter)
 logger.setLevel(DEBUG)
 logger.addHandler(handler)
 
-# Command line args
-parser = argparse.ArgumentParser(description="Parse, count and generate a word-cloud image from your command line history.")
-parser.add_argument("-s,", "--stop_words", nargs="?", help="File path that has words you don't want to use. The words must be separated by space or LineFeed.")
-args = parser.parse_args()
-
 
 ####################
 # Constants
 ####################
 command_pattern = re.compile("[\s;=<].+$")
-home            = path.expanduser('~')
-shell_byte      = Popen("echo $SHELL", shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT).communicate()[0]
-shell_path      = shell_byte.decode("utf-8").strip()
-shell_name      = shell_path.rsplit("/", 1)[-1]
-stop_words_file = args.stop_words
-logger.debug("user home path  = '%s'" % home)
-logger.debug("shell path      = '%s'" % shell_path)
-logger.debug("shell name      = '%s'" % shell_name)
-logger.debug("stop words file = '%s'" % stop_words_file)
+
 
 ####################
 # Functions
 ####################
 
-def create_history_frequencies(shell_name):
+def create_history_frequencies():
+	home       = path.expanduser('~')
+	logger.debug("user home path  = '%s'" % home)
+	shell_byte = Popen("echo $SHELL", shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT).communicate()[0]
+	shell_path = shell_byte.decode("utf-8").strip()
+	shell_name = shell_path.rsplit("/", 1)[-1]
+	logger.debug("shell path = '%s'" % shell_path)
+	logger.debug("shell name = '%s'" % shell_name)
+
 	words = {}
 
 	if shell_name in ["bash", "sh", "ksh"]:
@@ -87,8 +81,16 @@ def create_wordcloud(frequencies, stop_words):
 	image.show()
 
 def main():
+	# Command line args
+	parser = argparse.ArgumentParser(description="Parse, count and generate a word-cloud image from your command line history.")
+	parser.add_argument("-s,", "--stop_words", nargs="?", help="File path that has words you don't want to use. The words must be separated by space or LineFeed.")
+	args = parser.parse_args()
+	stop_words_file = args.stop_words
+	logger.debug("stop words file = '%s'" % stop_words_file)
+
+	# main
 	logger.info("Started %s." % path.basename(__file__))
-	words = create_history_frequencies(shell_name)
+	words = create_history_frequencies()
 	stop_words = load_stop_words(stop_words_file)
 	create_wordcloud(words, stop_words)
 	logger.info("Finished %s." % path.basename(__file__))
