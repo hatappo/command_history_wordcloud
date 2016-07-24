@@ -4,7 +4,7 @@
 from setuptools import setup, find_packages
 
 setup(name='command_history_wordcloud',
-      version='1.0.1',
+      version='1.0.7',
       description='Generate word cloud images for frequency of commands usage on your shell',
       author='Fumihiko Hata',
       author_email='hatappo44+command_history_wordcloud@gmail.com',
@@ -20,8 +20,9 @@ setup(name='command_history_wordcloud',
           'Pillow',
           'wordcloud',
       ],
-      entry_points="""
-          [console_scripts]
-          command_history_wordcloud = command_history_wordcloud:main
-      """,
+      entry_points={
+          "console_scripts": [
+              "chwc=command_history_wordcloud.command_history_wordcloud:main",
+          ],
+      }
 )
