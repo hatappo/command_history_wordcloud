@@ -13,41 +13,30 @@ This is utility to generate word cloud images from the command `history` in your
 See [Google image search with "wordcloud"](https://www.google.co.jp/search?q=wordcloud&tbm=isch) because seeing is simpler than describing.
 
 This tool use https://github.com/amueller/word_cloud .  
-The `word_cloud` library is awesome!
+The `word_cloud` is very easy to use and awesome!
 
 
 ## Getting started
 
-### (0) Prerequisite
+### Install
 
-If you don't have `pyenv`, [install it](https://github.com/yyuu/pyenv#installation).
-
-And create virtual env for this.
+Install from [PyPi](https://pypi.python.org/pypi/command_history_wordcloud)
 
 ```sh
-pyenv install 3.5.1 -s
-pyenv virtualenv 3.5.1 ch_wordcloud
+pip install command_history_wordcloud
 ```
 
-### (1-a) Install from PyPi
+Or install manually from GitHub
 
-    pyenv activate ch_wordcloud
-    pip install command_history_wordcloud
+```sh
+git clone https://github.com/hatappo/terminal_word_cloud
+cd terminal_word_cloud
+python setup.py install -e
+```
 
-or
+### Usage
 
-### (1-b) Install manually
-
-    git clone https://github.com/hatappo/terminal_word_cloud
-    cd terminal_word_cloud
-    pyenv activate ch_wordcloud
-	python setup.py install
-    pip install -r requirements.txt
-    python setup.py install
-
-### (2) Usage
-
-    command_history_wordcloud
+    chwc
 
 
 ## Help
