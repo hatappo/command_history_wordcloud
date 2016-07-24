@@ -1,4 +1,4 @@
-# Generate word cloud images for frequency of commands usage on your shell
+# Generates word cloud images for frequency of commands usage on your shell
 
 "Word Cloud" is effective way to glasp some kind of frequencies.
 This is utility to generate word cloud images from the command `history` in your shell.

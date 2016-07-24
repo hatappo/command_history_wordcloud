@@ -4,8 +4,8 @@
 from setuptools import setup, find_packages
 
 setup(name='command_history_wordcloud',
-      version='1.1.0',
-      description='Generate word cloud images for frequency of commands usage on your shell',
+      version='1.1.1',
+      description='Generates word cloud images for frequency of commands usage on your shell',
       author='Fumihiko Hata',
       author_email='hatappo44+command_history_wordcloud@gmail.com',
       url='https://github.com/hatappo/command_history_wordcloud',

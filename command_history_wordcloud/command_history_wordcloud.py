@@ -82,7 +82,7 @@ def create_wordcloud(frequencies, stop_words):
 
 def main():
 	# Command line args
-	parser = argparse.ArgumentParser(description="Parse, count and generate a word-cloud image from your command line history.")
+	parser = argparse.ArgumentParser(description="Parse and count your command line history, and generates a word-cloud image from that.")
 	parser.add_argument("-s,", "--stop_words", nargs="?", help="File path that has words you don't want to use. The words must be separated by space or LineFeed.")
 	args = parser.parse_args()
 	stop_words_file = args.stop_words
