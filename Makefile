@@ -1,4 +1,4 @@
-.PHONY: help init install package register upload release
+.PHONY: help init install package _register _upload release browse
 
 help:
 	@echo "主要なターゲットの一覧"
@@ -13,10 +13,13 @@ install:
 package:
 	python setup.py bdist_wheel
 
-register:
+_register:
 	python setup.py register
 
-upload:
+_upload:
 	python setup.py bdist_wheel upload
 
-release: register upload
+release: _register _upload
+
+browse:
+	open https://pypi.python.org/pypi/command_history_wordcloud
