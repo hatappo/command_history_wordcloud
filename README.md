@@ -1,10 +1,10 @@
-# Generates word cloud images for frequency of commands usage on your shell
+# Generates word-cloud images for frequency of commands usage on your shell
 
-"Word Cloud" is effective way to glasp some kind of frequencies.
-This is utility to generate word cloud images from the command `history` in your shell.
+"word-cloud" is effective way to glasp some kind of frequencies.
+This is utility to generate word-cloud images from the command `history` in your shell.
 
 
-## What is "Word Cloud"
+## What is "word-cloud"
 
 * Images that has the shapes & textures like cloud, made from some words.
 * Size of each word reflect their own weight.
@@ -54,6 +54,9 @@ optional arguments:
                         words must be separated by space or LineFeed.
 ```
 
+## Sample
+
+![chwc-sample01.png](chwc-sample01.png)
 
 ## License
 
