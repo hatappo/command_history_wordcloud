@@ -1,4 +1,4 @@
-Django==1.9.7
+Django==1.11.23
 image==1.5.3
 numpy==1.11.1
 Pillow==3.3.0
