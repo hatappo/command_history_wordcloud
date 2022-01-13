@@ -1,5 +1,5 @@
 Django==1.11.28
 image==1.5.3
 numpy==1.11.1
-Pillow==6.2.0
+Pillow==9.0.0
 wordcloud==1.2.1
